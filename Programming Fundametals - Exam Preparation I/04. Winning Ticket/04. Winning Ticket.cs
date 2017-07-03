@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace _04.Winning_Ticket
 {
@@ -7,11 +8,13 @@ namespace _04.Winning_Ticket
     {
         public static void Main()
         {
-            /*var tickets = Console.ReadLine().Split(new[] { ','},StringSplitOptions.RemoveEmptyEntries).Select(t => t.Trim()).ToArray();
+            // Option 1
+            var tickets = Console.ReadLine().Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(t => t.Trim()).ToArray();
 
             foreach (var ticket in tickets)
             {
-                if(ticket.Length != 20)
+                if (ticket.Length != 20)
                 {
                     Console.WriteLine("invalid ticket");
                     continue;
@@ -37,22 +40,24 @@ namespace _04.Winning_Ticket
                             var leftSymbolsLength = leftMatch.Value.Length;
                             var rightSymbolsLength = rightMatch.Value.Length;
                             var jackpot = leftSymbolsLength == 10 && rightSymbolsLength == 10
-                                ? " Jackpot!" 
+                                ? " Jackpot!"
                                 : string.Empty;
 
-                            Console.WriteLine($"ticket \"{ticket}\" - {Math.Min(leftSymbolsLength, rightSymbolsLength)}{winningSymbol.Trim('\\')}{jackpot}");
-
+                            Console.WriteLine($"ticket \"{ticket}\" - 
+                                              {Math.Min(leftSymbolsLength, rightSymbolsLength)}
+                                              {winningSymbol.Trim('\\')}
+                                              {jackpot}");
                             break;
                         }
                     }
-
                 }
                 if (!winningTicket)
                 {
                     Console.WriteLine($"ticket \"{ticket}\" - no match");
-                }*/
+                }
+            }
 
-            // Variant 2
+            /* Option 2
 
             var tickets = Console.ReadLine().Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(t => t.Trim()).ToArray();
 
@@ -101,16 +106,14 @@ namespace _04.Winning_Ticket
 
             public char Symbol { get; set; }
         }
-
-
+        
         public static  Result FindRepeatingSymbols(char[] symbols)
         {
             var prevSymbol = symbols.First();
             int count = 1;
             int maxCount = 0;
             var maxSymbol = default(char);
-
-
+            
             for (int i = 1; i < symbols.Length; i++)
             {
                 var currentSymbol = symbols[i];
@@ -121,7 +124,7 @@ namespace _04.Winning_Ticket
                 }
                 else
                 {
-                    
+
                     count = 1;
                 }
 
@@ -139,6 +142,7 @@ namespace _04.Winning_Ticket
                 Count = maxCount,
                 Symbol = maxSymbol
             };
+        }*/
         }
     }
 }
