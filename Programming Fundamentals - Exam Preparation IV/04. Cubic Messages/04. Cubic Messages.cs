@@ -31,17 +31,8 @@ namespace _04.Cubic_Messages
                         .Where(char.IsDigit)
                         .Select(s => s - '0');
 
+                    
                     var result = new StringBuilder();
-
-
-                    //.Select(s => s - '0');
-                
-                    //   =
-
-                    //foreach (var index in indexes)
-                    //{
-                    //    var digit = index - '0';
-                    //}
 
                     foreach (var index in indexes)
                     {
